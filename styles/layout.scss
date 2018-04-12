@@ -1,7 +1,15 @@
-body {
-  background-color: #EEE;
+$containerWidth: 80vw;
+$containerHeight: 80vh;
+$containerMarginHorizontal: 10vw;
+$containerMarginVertical: 10vh;
+$containerPadding: 12vw;
 
-  h1 {
-    color: #244751;
-  }
+#content-container{
+  width: $containerWidth;
+  height: $containerHeight;
+  padding: $containerPadding;
+}
+
+body {
+  padding: $containerMarginVertical $containerMarginHorizontal;
 }

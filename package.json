@@ -1,13 +1,13 @@
 {
   "name": "node-skeleton",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Project Setup",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "local": "./node_modules/.bin/nodemon --ignore public/",
-    "knex": "./node_modules/.bin/knex"
+    "local": "nodemon --ignore public/ -L",
+    "knex": "knex"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
@@ -16,14 +16,25 @@
     "dotenv": "^2.0.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
     "knex": "^0.11.7",
     "knex-logger": "^0.1.0",
     "morgan": "^1.7.0",
     "node-sass-middleware": "^0.9.8",
-    "pg": "^6.0.2"
+    "pg": "^6.0.2",
+    "semantic-ui": "^2.3.1"
   },
   "devDependencies": {
     "nodemon": "^1.9.2",
     "sqlite3": "^3.1.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/popnfresh234/decider2000.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/popnfresh234/decider2000/issues"
+  },
+  "homepage": "https://github.com/popnfresh234/decider2000#readme"
 }

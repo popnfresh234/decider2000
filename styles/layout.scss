@@ -9,6 +9,7 @@ $containerPadding: 12vw;
 #content-container{
   width: $containerWidth;
   height: $containerHeight;
+  max-height: $containerHeight;
   padding: $containerPadding;
 }
 

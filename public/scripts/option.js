@@ -1,36 +1,36 @@
 $(() => {
 
   var optionArray = [];
-
+  var hidden = true;
 
   $('#button-add-option').on('click', function(event){
     var optionName = $('#input-option').find('input').val();
     var description = $('#input-description').find('input').val();
-    var option ={optionName, description};
-    var id = optionArray.push(option) - 1;
-    console.log(id);
 
-    var item = $('<div class="item">').data('id',id);
+    //Build and appendlist item
+    var item = $('<div class="item">');
     var leftFloatedContent = $('<div class="left floated content">')
-    leftFloatedContent.append('<div class="header">' + optionName + '</div>')
-    leftFloatedContent.append(description);
+    leftFloatedContent.append('<div class="header option-name">' + optionName + '</div>')
+    leftFloatedContent.append('<span class="option-description">' + description + '</span>');
     item.append(leftFloatedContent);
-
-
     var rightFloatedContent = $('<div class="right floated content">');
     rightFloatedContent.append('<div class="ui button basic icon"><i class="times icon"></i></div>');
     item.append(rightFloatedContent);
-
     $('#list-options').append(item);
   });
 
   $('#list-options').on('click', '.button', function(event) {
-    console.log('CLIKED');
-    var index = ($(this).closest('.item').data('id'));
     $(this).closest('.item').remove();
-    optionArray.splice(index, 1);
-    console.log(optionArray);
   })
+
+  $('#button-next-step').on('click', function(event){
+    $( ".item" ).each(function( index , element) {
+      var optionName = $(element).find('.option-name').text();
+      var description = $(element).find('.option-description').text();
+      optionArray.push({optionName, description});
+    });
+    console.log(optionArray);
+  });
 
 
 });

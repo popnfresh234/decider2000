@@ -1,3 +1,9 @@
 #body-black {
   background-color: #111;
 }
+
+#list-options {
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

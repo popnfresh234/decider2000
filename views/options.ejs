@@ -25,25 +25,46 @@
     <h1 class="ui header"><%= result.ptitle %></h1>
     <div class="ui grid">
 
+
+      <!-- First Column -->
       <div class="eight wide column">
+        <!-- Option Name Input -->
         <div id="input-option" class="ui input fluid">
           <input type="text" placeholder="Option...">
         </div>
+
         <div class="ui hidden divider"></div>
+
+        <!-- Description Input -->
         <div id="input-description" class="ui input fluid">
           <input type="text" placeholder="Description...">
         </div>
+
         <div class="ui hidden divider"></div>
+
+        <!-- Add option button -->
         <button id="button-add-option" class="ui animated black button">
           <div class="visible content">Add!</div>
           <div class="hidden content">
             <i class="right arrow icon"></i>
           </div>
         </button>
+
+
+
+        <!-- Submit button -->
+        <button id="button-next-step" class="ui animated blue button">
+          <div class="visible content">Next!</div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </button>
+
       </div>
+
+      <!-- Second Column -->
       <div class="eight wide column">
         <div id="list-options" class="ui celled list">
-
         </div>
       </div>
 

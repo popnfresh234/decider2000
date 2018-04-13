@@ -96,56 +96,83 @@ module.exports = (knex) => {
   //*** GET /polls/:id/result ***
  //*********************************************
  router.get("/:id/options", (req, res) => {
-    let id = req.params.id;
-    knex('poll')
-    .where('id', id)
-    .then((result) => {
-      res.render('options', {result: result[0]})
-    })
- });
+  let id = req.params.id;
+  knex('poll')
+  .where('id', id)
+  .then((result) => {
+    res.render('options', {result: result[0], id})
+  })
+});
 
 
-  //*********************************************
-  //*** POST /polls/ ***
-  //*********************************************
-
-
-  // router.post("/", (req, res) => {
-  //   let poll = req.body;
-  //   //Get poll data form poll object
-  //   let title = poll.ptitle;
-  //   let email = poll.email;
-  //   let optionArray = poll.options;
-  //   let phoneNumberArray = poll.phoneNumbers;
-
-  //   //Insert poll
-  //   knex('poll')
-  //   .returning('id')
-  //   .insert({ptitle: title, email})
-  //   .then((id) =>  {
-  //     insertOptions(optionArray, id);
-  //     insertPhoneNumbers(phoneNumberArray, id);
-  //     res.send({redirect: '/polls/' + id +'/links'});
-  //   }).catch((err) => {
-  //     console.log(err);
-  //   });
-  // });
-
-  router.post("/", (req, res) => {
-    let ptitle = req.body.ptitle;
-    let email = req.body.email;
+ router.post("/", (req, res) => {
+  let ptitle = req.body.ptitle;
+  let email = req.body.email;
     //Create poll:
     knex('poll')
     .returning('id')
     .insert({ptitle, email})
     .then((id) => {
       console.log("INSERTED: ", id);
-      res.send({redirect: '/polls/' + id +'/options'});
+      res.send({redirect: '/polls/' + id + '/options'});
     }).catch((err) => {
       console.error(err);
     })
   })
 
+
+  //*********************************************
+  //*** POST/ polls/:id/option ***
+  //*********************************************
+
+  router.post('/:id/options', (req, res) => {
+    let optionArray = req.body.options;
+    for (let option of optionArray) {
+      let title = option.title;
+      let description = option.description;
+      knex('option')
+      .returning('id')
+      .insert({title, description, poll_id: req.params.id})
+      .then((id)=>{
+        console.log("Successful insert");
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+    }
+    res.send({redirect: '/polls/' + req.params.id + '/phone'});
+  })
+
+  //*********************************************
+  //*** GET/ polls/:id/phone ***
+  //*********************************************
+  router.get('/:id/phone', (req, res) => {
+    res.render('phone', {id: req.params.id});
+  })
+
+  //*********************************************
+  //*** POST/ polls/:id/phone ***
+  //*********************************************
+  router.post('/:id/phone', (req, res) => {
+    let id = req.params.id;
+    let phoneNumberArray = req.body.phoneNumberArray;
+
+    if (phoneNumberArray && phoneNumberArray.length > 0) {
+
+      for (let number of phoneNumberArray) {
+        knex('phone')
+        .insert({number, poll_id: id})
+        .then((result) => {
+          console.log("Successful phone number insert");
+        }).catch((err) => {
+          console.error(err);
+        })
+      }
+
+      res.send({redirect: '/polls/' + req.params.id + '/links'});
+
+    }
+  })
 
   //*********************************************
   //*** PUT/ polls/:id ***

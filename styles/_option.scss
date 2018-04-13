@@ -1,9 +1,40 @@
+#content-container {
+  width: 80vw;
+  height: 80vh;
+  max-height: 80vh;
+  padding: 12vw; }
+
+body {
+  padding: 10vh 10vw; }
+
+#button-back {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
+
+#input-field-email {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+@media all and (max-width: 400px) {
+  #content-container {
+    height: 100vh;
+    width: 100vh;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em; }
+  body {
+    padding: 0px; } }
+
 #body-black {
-  background-color: #111;
-}
+  background-color: #111; }
 
 #list-options {
   max-height: 40vh;
   overflow-y: auto;
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
+
+.item:first-child {
+  border-top: 1px solid white !important; }
+
+.item {
+  border-bottom: 1px solid white !important; }

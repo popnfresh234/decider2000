@@ -1,5 +1,21 @@
 $(() => {
 
+  function postOptions(optionArray){
+    let id = $('h1').data('id');
+
+    $.ajax({
+      url: '/polls/' + id + '/options/',
+      method: 'POST',
+      data: {options: optionArray},
+      dataType: 'json',
+      success: function(data) {
+        if (typeof data.redirect == 'string'){
+          window.location = data.redirect;
+        }
+      }
+    });
+  }
+
   var optionArray = [];
   var hidden = true;
 
@@ -25,24 +41,11 @@ $(() => {
 
   $('#button-next-step').on('click', function(event){
     $( ".item" ).each(function( index , element) {
-      var optionName = $(element).find('.option-name').text();
+      var title = $(element).find('.option-name').text();
       var description = $(element).find('.option-description').text();
-      optionArray.push({optionName, description});
+      optionArray.push({title, description});
     });
-    console.log(optionArray);
+    postOptions(optionArray)
+    optionArray = [];
   });
-
-
 });
-
-          // <div class="item">
-          //   <div class="left floated content">
-          //     <div class="header">Snickerdoodle</div>
-          //     An excellent companion
-          //   </div>
-          //   <div class="right floated content">
-          //     <div class="ui button basic icon">
-          //       <i class="times icon"></i>
-          //     </div>
-          //   </div>
-          // </div>

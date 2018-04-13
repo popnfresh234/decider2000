@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decider 2000</title>
+
+  <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+  <script type="text/javascript" src="/scripts/phone.js"></script>
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css">
+</head>
+
+<body>
+
+
+
+
+  <div id="content-container" data-id="<%= id %>" class="ui inverted raised container  segment">
+    <h1 class="ui header">Send the poll to your friends!</h1>
+    <div class="ui grid">
+
+
+      <!-- First Column -->
+      <div class="eight wide column">
+        <!-- Option Name Input -->
+        <div id="input-phone" class="ui action input fluid">
+          <input type="text" placeholder="Phone #...">
+          <button id="button-add-phone" class="ui black inverted mini button">
+            <div class="visible content"><i class="plus icon"></i></div>
+
+          </button>
+        </div>
+
+        <div class="ui hidden divider"></div>
+
+
+        <!-- Submit button -->
+        <button id="button-submit" class="ui animated inverted blue button">
+          <div class="visible content">Submit!</div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- Second Column -->
+      <div class="eight wide column">
+
+        <div id="list-phone-number" class="ui inverted relaxed celled list">
+
+      </div>
+      </div>
+
+
+    </div>
+
+
+
+  </body>
+  </html>

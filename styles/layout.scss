@@ -4,8 +4,6 @@ $containerMarginHorizontal: 10vw;
 $containerMarginVertical: 10vh;
 $containerPadding: 12vw;
 
-
-
 #content-container{
   width: $containerWidth;
   height: $containerHeight;
@@ -42,4 +40,5 @@ body {
   }
 }
 
-@import 'option'
+@import 'option';
+@import 'phone';

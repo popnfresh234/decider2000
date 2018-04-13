@@ -1,0 +1,48 @@
+site vars
+
+@fontName:  'Ubuntu Mono';
+
+semantic.json
+
+{
+  "base": "/semantic",
+  "paths": {
+    "source": {
+      "config": "src/theme.config",
+      "definitions": "src/definitions/",
+      "site": "src/site/",
+      "themes": "src/themes/"
+    },
+    "output": {
+      "packaged": "../public/dist/",
+      "uncompressed": "/dist/components/",
+      "compressed": "/dist/components/",
+      "themes": "../public/dist/themes/"
+    },
+    "clean": "../public/dist/",
+    "clean": "/dist/"
+  },
+  "permission": false,
+  "autoInstall": false,
+  "rtl": false,
+  "components": [
+    "reset",
+    "site",
+    "button",
+    "container",
+    "divider",
+    "header",
+    "input",
+    "segment",
+    "icon"
+  ],
+  "version": "2.3.1"
+}
+
+force del
+
+
+    del: {
+      silent : true,
+      force: true
+    },

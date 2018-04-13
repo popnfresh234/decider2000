@@ -3,3 +3,9 @@ public/styles
 .env
 *.log
 *.sqlite3
+
+semantic/dist/components
+semantic/dist/themes/*
+!semantic/dist/*.js
+!semantic/dist/*.css
+!semantic/dist/themes/default/

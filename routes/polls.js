@@ -68,9 +68,9 @@ module.exports = (knex) => {
     .where('poll_id', id)
     .then((results) => {
 
-      }).catch((err) => {
-        console.log(err);
-      });
+    }).catch((err) => {
+      console.log(err);
+    });
     res.render('links');
   });
 
@@ -92,32 +92,59 @@ module.exports = (knex) => {
     });
   });
 
+  //*********************************************
+  //*** GET /polls/:id/result ***
+ //*********************************************
+ router.get("/:id/options", (req, res) => {
+    let id = req.params.id;
+    knex('poll')
+    .where('id', id)
+    .then((result) => {
+      res.render('options', {result: result[0]})
+    })
+ });
+
 
   //*********************************************
   //*** POST /polls/ ***
   //*********************************************
 
 
-  router.post("/", (req, res) => {
-    let poll = req.body;
-    //Get poll data form poll object
-    let title = poll.ptitle;
-    let email = poll.email;
-    let optionArray = poll.options;
-    let phoneNumberArray = poll.phoneNumbers;
+  // router.post("/", (req, res) => {
+  //   let poll = req.body;
+  //   //Get poll data form poll object
+  //   let title = poll.ptitle;
+  //   let email = poll.email;
+  //   let optionArray = poll.options;
+  //   let phoneNumberArray = poll.phoneNumbers;
 
-    //Insert poll
+  //   //Insert poll
+  //   knex('poll')
+  //   .returning('id')
+  //   .insert({ptitle: title, email})
+  //   .then((id) =>  {
+  //     insertOptions(optionArray, id);
+  //     insertPhoneNumbers(phoneNumberArray, id);
+  //     res.send({redirect: '/polls/' + id +'/links'});
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   });
+  // });
+
+  router.post("/", (req, res) => {
+    let ptitle = req.body.ptitle;
+    let email = req.body.email;
+    //Create poll:
     knex('poll')
     .returning('id')
-    .insert({ptitle: title, email})
-    .then((id) =>  {
-      insertOptions(optionArray, id);
-      insertPhoneNumbers(phoneNumberArray, id);
-      res.send({redirect: '/polls/' + id +'/links'});
+    .insert({ptitle, email})
+    .then((id) => {
+      console.log("INSERTED: ", id);
+      res.send({redirect: '/polls/' + id +'/options'});
     }).catch((err) => {
-      console.log(err);
-    });
-  });
+      console.error(err);
+    })
+  })
 
 
   //*********************************************

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decider 2000</title>
+
+  <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+  <script type="text/javascript" src="/scripts/option.js"></script>
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css">
+</head>
+
+<body id="body-black">
+
+
+
+
+  <div id="content-container" class="ui raised container segment">
+    <h1 class="ui header"><%= result.ptitle %></h1>
+    <div class="ui grid">
+
+      <div class="eight wide column">
+        <div id="input-option" class="ui input fluid">
+          <input type="text" placeholder="Option...">
+        </div>
+        <div class="ui hidden divider"></div>
+        <div id="input-description" class="ui input fluid">
+          <input type="text" placeholder="Description...">
+        </div>
+        <div class="ui hidden divider"></div>
+        <button id="button-add-option" class="ui animated black button">
+          <div class="visible content">Add!</div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </button>
+      </div>
+      <div class="eight wide column">
+        <div id="list-options" class="ui celled list">
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+  </body>
+  </html>

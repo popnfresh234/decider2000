@@ -4,12 +4,41 @@ $containerMarginHorizontal: 10vw;
 $containerMarginVertical: 10vh;
 $containerPadding: 12vw;
 
+
+
 #content-container{
   width: $containerWidth;
   height: $containerHeight;
   padding: $containerPadding;
 }
 
+
 body {
   padding: $containerMarginVertical $containerMarginHorizontal;
 }
+
+#button-back{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#input-field-email{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+@media all and (max-width: 400px) {
+  #content-container {
+    height: 100vh;
+    width: 100vh;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+
+  body{
+    padding: 0px;
+  }
+}
+
+@import 'option'

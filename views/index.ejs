@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decider 2000</title>
 
   <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
 
@@ -10,7 +11,8 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 
-  <script src="/dist/semantic.min.js"></script>
+  <script type="text/javascript" src="/semantic/dist/semantic.min.js"></script>
+  <script type="text/javascript" src="/scripts/email.js"></script>
   <link rel="stylesheet" type="text/css" href="/styles/layout.css">
 </head>
 
@@ -18,17 +20,34 @@
   <div id="content-container" class="ui inverted raised container segment">
     <h1 class="ui inverted header">Welcome to Decider</h1>
 
-      <div class="ui action huge input fluid">
-        <input type="text" placeholder="Enter your email">
-        <button class="ui animated red button">
-          <div class="visible content">Go!</div>
-          <div class="hidden content">
-            <i class="right arrow icon"></i>
-          </div></button>
+    <div id="input-title"  class="ui action huge input fluid">
+      <input type="text" placeholder="Title...">
+      <button id="button-title-go" class="ui animated blue inverted button">
+        <div class="visible content">Go!</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
         </div>
-      </div>
+      </button>
+    </div>
+
+    <div id="input-email"  class="ui action huge input fluid transition hidden">
+      <button id="button-back" class="ui animated purple inverted button">
+        <div class="visible content">Back!</div>
+        <div class="hidden content">
+          <i class="left arrow icon"></i>
+        </div>
+      </button>
+      <input id="input-field-email" type="text" placeholder="E-mail...">
+      <button id="button-email-go" class="ui animated blue inverted button">
+        <div class="visible content">Go!</div>
+        <div class="hidden content">
+          <i class="right arrow icon"></i>
+        </div>
+      </button>
+    </div>
+  </div>
 
 
 
-  </body>
-  </html>
+</body>
+</html>

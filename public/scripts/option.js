@@ -43,15 +43,23 @@ $(() => {
       item.append(rightFloatedContent);
       $('#list-options').append(item);
 
+      //Show submit if more htan two options
+      if($('.item').length === 2) {
+        $('#button-next-step').transition("slide up")
+      }
+
       //Clear out fields
       inputTitle.find('input').val('');
       inputDescription.find('input').val('');
-   }
+    }
 
-});
+  });
 
   $('#list-options').on('click', '.button', function(event) {
     $(this).closest('.item').remove();
+    if($('.item').length === 1) {
+      $('#button-next-step').transition("slide down")
+    }
   })
 
   $('#button-next-step').on('click', function(event){

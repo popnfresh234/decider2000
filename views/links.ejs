@@ -24,17 +24,17 @@
   <div id="content-container" class="ui raised container  segment">
     <h1 class="ui header">Send the poll to your friends!</h1>
     <div id="menu-links" class="ui massive inverted  pointing menu">
-      <a class="item">Share</a>
+      <a class="item active">Share</a>
       <a class="item">Results</a>
     </div>
-    <div id="content-share" class="content hidden">
+    <div id="content-share" class="content">
       <div class="ui divider"></div>
       <a class="link-large" href="<%= host %>/polls/<%= id %>"><%= host %>/polls/<%= id %></a>
       <div class="ui divider"></div>
     </div>
     <div id="content-result" class="content hidden">
       <div class="ui divider"></div>
-      <a class="link-large" href="<%= host %>/<%= id %>/results"><%= host %>/<%= id %>/results</a>
+      <a class="link-large" href="<%= host %>/<%= id %>/results"><%= host %>/polls/<%= id %>/results</a>
       <div class="ui divider"></div>
     </div>
   </div>

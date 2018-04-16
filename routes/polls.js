@@ -79,7 +79,7 @@ module.exports = (knex) => {
   //*********************************************
 
 
-  router.get("/:id/result", (req, res)=> {
+  router.get("/:id/results", (req, res)=> {
     let id = req.params.id;
     knex('poll')
     .join('option', 'poll.id', '=', 'option.poll_id')

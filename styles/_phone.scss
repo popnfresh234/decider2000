@@ -5,3 +5,9 @@
 #list-phone-number .item{
   border-bottom: 1px solid white !important;
 }
+
+#list-phone-number {
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

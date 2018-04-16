@@ -71,7 +71,7 @@ module.exports = (knex) => {
     }).catch((err) => {
       console.log(err);
     });
-    res.render('links');
+    res.render('links', {id, host: process.env.HOST});
   });
 
   //*********************************************
@@ -168,10 +168,8 @@ module.exports = (knex) => {
           console.error(err);
         })
       }
-
-      res.send({redirect: '/polls/' + req.params.id + '/links'});
-
     }
+    res.send({redirect: '/polls/' + req.params.id + '/links'});
   })
 
   //*********************************************

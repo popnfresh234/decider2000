@@ -43,6 +43,7 @@ $(() => {
       var phoneNumber = $(element).find('.phone-number').text();
       phoneNumberArray.push({phoneNumber});
     });
+    console.log("SUBMIT!");
     postPhoneNumbers(phoneNumberArray);
     phoneNumberArray = [];
   });
